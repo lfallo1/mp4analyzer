@@ -14,16 +14,16 @@ public class FileUtility {
         }
     }
 
-    public File[] searchFiles(String folder, String filename, FileSearchType fileSearchType) {
+    public File[] searchFiles(String folder, String searchText, FileSearchType fileSearchType) {
         switch(fileSearchType) {
             case STARTS_WITH:
-                return new File(folder).listFiles(f -> f.getName().startsWith(filename));
+                return new File(folder).listFiles(f -> f.getName().startsWith(searchText));
             case ENDS_WITH:
-                return new File(folder).listFiles(f -> f.getName().endsWith(filename));
+                return new File(folder).listFiles(f -> f.getName().endsWith(searchText));
             case CONTAINS:
-                return new File(folder).listFiles(f -> f.getName().contains(filename));
+                return new File(folder).listFiles(f -> f.getName().contains(searchText));
             default:
-                return new File(folder).listFiles(f -> f.getName().contains(filename));
+                return new File(folder).listFiles(f -> f.getName().contains(searchText));
         }
     }
 
