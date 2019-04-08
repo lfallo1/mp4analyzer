@@ -63,7 +63,7 @@ public class ScreenGrabService {
             ImageIO.write(bufferedImage, "png", screenCapture);
 
             //update the db record with new screenCapture path & timestamp
-            screenGrabRepository.updateScreenGrab(new ScreenGrabMeta(screenCapture.getAbsolutePath(), frameLocation));
+            screenGrabRepository.updateScreenGrab(new ScreenGrabMeta(screenCapture.getAbsolutePath(), frameLocation, g.getFrameRate()));
 
             g.stop();
 
