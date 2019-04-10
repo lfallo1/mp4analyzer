@@ -40,7 +40,7 @@ public class FileUtility {
         return file.getName().split("\\.")[0];
     }
 
-    public void addToZipFile(String zipAbsFilePath, List<File> filesToZip) {
+    public File addToZipFile(String zipAbsFilePath, List<File> filesToZip) {
         try (ZipOutputStream zipOut = new ZipOutputStream(new FileOutputStream(zipAbsFilePath))) {
             for (File fileToZip : filesToZip) {
                 zipOut.putNextEntry(new ZipEntry(fileToZip.getName()));
@@ -49,5 +49,6 @@ public class FileUtility {
         } catch(IOException e){
             log.warning(e.toString());
         }
+        return new File(zipAbsFilePath);
     }
 }
