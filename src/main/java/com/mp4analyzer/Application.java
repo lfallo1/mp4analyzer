@@ -1,5 +1,6 @@
 package com.mp4analyzer;
 
+import com.mp4analyzer.service.PdfService;
 import com.mp4analyzer.service.ScreenGrabService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,12 +15,15 @@ public class Application implements CommandLineRunner {
     @Autowired
     private ScreenGrabService screenGrabService;
 
+    @Autowired
+    private PdfService pdfService;
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
     @Override
     public void run(String... args) throws Exception {
-        this.screenGrabService.refreshImagePreviews();
+        this.pdfService.parsePdf();
     }
 }
